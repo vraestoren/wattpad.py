@@ -57,7 +57,6 @@ class WattPad:
 		return self.session.post(
 			f"{self.api}/v4/users", data=data).json()
 
-
 	def validate_email(self, email: str) -> dict:
 		return self.session.get(
 			f"{self.public_api}/api/v3/users/validate?email={email}").json()
@@ -78,7 +77,8 @@ class WattPad:
 			}
 		}
 		return self.session.post(
-			f"{self.public_api}/v5/password-strength/check", data=data).json()
+			f"{self.public_api}/v5/password-strength/check",
+			data=data).json()
 
 	def get_language_ids(self) -> dict:
 		return self.session.get(f"{self.public_api}/apiv2/getlang").json()
@@ -192,7 +192,8 @@ class WattPad:
 			"action": "ignore_user"
 		}
 		return self.session.post(
-			f"{self.public_api}/apiv2/ignoreuser?wp_token={self.wp_token}", data=data).json()
+			f"{self.public_api}/apiv2/ignoreuser?wp_token={self.wp_token}",
+			data=data).json()
 
 	def unignore_user(self, username: str) -> dict:
 		data = {
@@ -200,14 +201,16 @@ class WattPad:
 			"action": "unignore_user"
 		}
 		return self.session.post(
-			f"{self.public_api}/apiv2/ignoreuser?wp_token={self.wp_token}", data=data).json()
+			f"{self.public_api}/apiv2/ignoreuser?wp_token={self.wp_token}",
+			data=data).json()
 
 	def resend_email_verification(self) -> dict:
 		data = {
 			"activation_email": True
 		}
 		return self.session.post(
-			f"{self.public_api}/api/v3/users/validate?wp_token={self.wp_token}", data=data).json()
+			f"{self.public_api}/api/v3/users/validate?wp_token={self.wp_token}",
+			data=data).json()
 
 	def get_wall_comments(
 			self,
@@ -331,16 +334,16 @@ class WattPad:
 		return self.session.post(
 			f"{self.public_api}/apiv2/updateusername?wp_token={self.wp_token}", data=data).json()
 
-	def update_fullname(self, fullname: str) -> dict:
+	def update_name(self, name: str) -> dict:
 		data = {
-			"name": fullname
+			"name": name
 		}
 		return self.session.put(
 			f"{self.public_api}/api/v3/users/{self.username}?wp_token={self.wp_token}", data=data).json()
 
-	def update_website(self, url: str) -> dict:
+	def update_website(self, website: str) -> dict:
 		data = {
-			"website": url
+			"website": website
 		}
 		return self.session.put(
 			f"{self.public_api}/api/v3/users/{self.username}?wp_token={self.wp_token}", data=data).json()
