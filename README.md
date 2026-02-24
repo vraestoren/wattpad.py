@@ -3,7 +3,8 @@ Mobile-API for [Wattpad](https://play.google.com/store/apps/details?id=wp.wattpa
 
 ## Example
 ```python
-import wattpad
-wattpad = wattpad.WattPad()
+from wattpad import WattPad
+
+wattpad = WattPad()
 wattpad.login(username="", password="")
 ```
